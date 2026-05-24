@@ -93,8 +93,12 @@ galleryList.addEventListener("click", (event) => {
 
   if (!galleryLink) return;
 
-  const largeImageUrl = event.target.dataset.source;
-  const description = event.target.alt;
+  const image = galleryLink.querySelector(".gallery-image");
+
+  if (!image) return;
+
+  const largeImageUrl = image.dataset.source;
+  const description = image.alt;
 
   const instance = basicLightbox.create(`
     <img src="${largeImageUrl}" alt="${description}" />
